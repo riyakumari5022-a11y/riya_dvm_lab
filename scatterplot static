@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+
+# Sample data
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 5, 4, 6]
+
+# Create scatter plot
+plt.scatter(x, y)
+
+# Add labels and title
+plt.xlabel("X-axis")
+plt.ylabel("Y-axis")
+plt.title("Basic Scatter Plot")
+
+# Show plot
+plt.show()

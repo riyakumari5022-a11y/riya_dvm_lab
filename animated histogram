@@ -1,0 +1,33 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+# Create figure and axis
+fig, ax = plt.subplots()
+
+# Initial empty histogram
+data = np.random.randn(1000)
+n_bins = 30
+
+# Plot initial histogram
+bars = ax.hist(data, bins=n_bins, range=(-5, 5))[2]
+
+ax.set_xlim(-5, 5)
+ax.set_ylim(0, 200)
+ax.set_title("Animated Histogram")
+
+def update(frame):
+    ax.cla()  # Clear axis
+    new_data = np.random.randn(1000)  # Generate new data
+    ax.hist(new_data, bins=n_bins, range=(-5, 5), color='skyblue', edgecolor='black')
+    ax.set_xlim(-5, 5)
+    ax.set_ylim(0, 200)
+    ax.set_title("Animated Histogram")
+
+# Create animation
+ani = FuncAnimation(fig, update, frames=50, interval=200)
+
+plt.show()
+
+

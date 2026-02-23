@@ -1,0 +1,16 @@
+import matplotlib.pyplot as plt
+
+# Data
+labels = ['Apples', 'Bananas', 'Cherries', 'Dates']
+sizes = [30, 25, 20, 25]
+
+# Create pie chart
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
+
+# Equal aspect ratio ensures pie is drawn as a circle
+plt.axis('equal')
+
+# Title
+plt.title("Fruit Distribution")
+
+plt.show()
