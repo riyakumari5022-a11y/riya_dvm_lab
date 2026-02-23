@@ -1,0 +1,34 @@
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+import random
+
+# Create a figure and axis
+fig, ax = plt.subplots()
+ax.set_xlim(0, 100)  # X-axis limits
+ax.set_ylim(0, 100)  # Y-axis limits
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_title("Dynamic Scatter Plot")
+
+# Initialize an empty scatter plot
+sc = ax.scatter([], [])
+
+# Lists to store data points
+x_data, y_data = [], []
+
+# Update function for animation
+def update(frame):
+    # Generate new random data point
+    x_new = random.randint(0, 100)
+    y_new = random.randint(0, 100)
+    x_data.append(x_new)
+    y_data.append(y_new)
+    
+    # Update scatter plot
+    sc.set_offsets(list(zip(x_data, y_data)))
+    return sc,
+
+# Create animation
+ani = animation.FuncAnimation(fig, update, frames=50, interval=500, blit=True)
+
+plt.show()
